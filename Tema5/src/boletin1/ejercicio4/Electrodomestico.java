@@ -19,6 +19,19 @@ public class Electrodomestico {
 	private double peso = 5;
 	
 	
+	
+	public Electrodomestico(double precio, double peso) {
+		
+		if (precio > 0) {
+			this.precioBase = precio;
+		}
+		
+		if (peso > 0) {
+			this.peso = peso;
+		}
+	}
+	
+	
 	public Electrodomestico(double precio, double peso, String color, char consumoEnergetico) {
 		
 		if (precio > 0) {
@@ -39,16 +52,6 @@ public class Electrodomestico {
 		}
 	}
 	
-	public Electrodomestico(double precio, double peso) {
-		
-		if (precio > 0) {
-			this.precioBase = precio;
-		}
-		
-		if (peso > 0) {
-			this.peso = peso;
-		}
-	}
 	
 	
 	public double getPrecioBase() {
@@ -68,6 +71,11 @@ public class Electrodomestico {
 	}
 	
 	
+	public void setPrecioBase(double precio) {
+		if (precioBase > 0) {
+			this.precioBase = precio;
+		}
+	}
 	// FALTAN SETTERS
 	
 	
@@ -82,6 +90,7 @@ public class Electrodomestico {
 		return res;
 	}
 	
+	
 	private boolean comprobarColor(String color) {
 		
 		boolean res = false;
@@ -91,6 +100,45 @@ public class Electrodomestico {
 		}
 		
 		return res;
+	}
+	
+	
+	public void precioFinal() {
+		
+		if (consumoEnergetico == ConsumoEnergetico.A) {
+			this.precioBase += 100;
+		} else if (consumoEnergetico == ConsumoEnergetico.B) {
+			this.precioBase += 80;
+		} else if (consumoEnergetico == ConsumoEnergetico.C) {
+			this.precioBase += 60;
+		} else if (consumoEnergetico == ConsumoEnergetico.D) {
+			this.precioBase += 50;
+		} else if (consumoEnergetico == ConsumoEnergetico.E) {
+			this.precioBase += 30;
+		} else {
+			this.precioBase += 10;
+		}
+		
+		if (peso >= 0 && peso <= 19) {
+			this.precioBase += 10;
+		}
+		if (peso >= 20 && peso <= 49) {
+			this.precioBase += 50;
+		}
+		if (peso >= 50 && peso <= 79) {
+			this.precioBase += 80;
+		}
+		if (peso >= 80) {
+			this.precioBase += 100;
+		}
+	}
+	
+	
+	public String toString() {
+		return "PRECIO BASE -> " + this.precioBase + "\n" + 
+				"COLOR -> " + this.color + "\n" + 
+				"CONSUMO ENERGÉTICO -> " + this.consumoEnergetico + "\n" + 
+				"PESO -> " + this.peso;
 	}
 	
 	
