@@ -40,7 +40,7 @@ public class Futbolista implements Comparable<Futbolista>{
 	
 	@Override
 	public String toString() {
-		return "--- " + this.nombre + " (" + this.edad + ") " + " ---" + "\n" +
+		return this.nombre + " (" + this.edad + ")" + "\n" +
 		"DORSAL -> " + this.dorsal + "\n" + 
 		"GOLES -> " + this.goles;
 	}

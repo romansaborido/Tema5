@@ -9,6 +9,8 @@ public class FutbolistaMain {
 	public static void main(String[] args) {
 		
 		int opcion;
+		
+		Futbolista f;
 
 		do {
 			
@@ -16,25 +18,39 @@ public class FutbolistaMain {
 			
 			System.out.println("Introduzca una opcion");
 			opcion = reader.nextInt();
+			reader.nextLine();
 			
 			switch (opcion) {
 				case 1 -> {
+					FutbolistaCrud.ordenarFutbolistas();
 					
+					FutbolistaCrud.listarFutbolistas();
 				}
 				case 2 -> {
-								
+					f = creaFutbolista();
+					
+					if (FutbolistaCrud.añadirFutbolista(f)) {
+						System.out.println("El futbolista se ha añadido correctamente");
+					} else {
+						System.out.println("El futbolista no se ha podido añadir");
+					}		
 				}
 				case 3 -> {
+					f = creaFutbolistaPk();
 					
+					if (FutbolistaCrud.eliminarFutbolista(f)) {
+						System.out.println("El futbolista se ha eliminado correctamente");
+					} else {
+						System.out.println("El futbolista no se ha podido eliminar");
+					}
 				}
 				case 4 -> {
-					
+					System.out.println("[!] Saliste del programa");
 				}
 				default -> {
-					
+					System.out.println("Introduzca una opción válida");
 				}
 			}
-			
 		} while (opcion != 4);
 
 	}
@@ -68,6 +84,23 @@ public class FutbolistaMain {
 		goles = reader.nextInt();
 		
 		Futbolista f = new Futbolista(nombre, dorsal, edad, goles);
+		
+		return f;
+	}
+	
+	
+	private static Futbolista creaFutbolistaPk() {
+		
+		String nombre;
+		int dorsal;
+		
+		System.out.println("Introduzca el nombre");
+		nombre = reader.nextLine();
+		
+		System.out.println("Introduzca el dorsal");
+		dorsal = reader.nextInt();
+		
+		Futbolista f = new Futbolista(nombre, dorsal);
 		
 		return f;
 	}

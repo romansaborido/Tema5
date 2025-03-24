@@ -7,14 +7,14 @@ public class FutbolistaCrud {
 
 	private static ArrayList<Futbolista> futbolistas = new ArrayList<>();
 	
-	public void listarFutbolistas() {
+	public static void listarFutbolistas() {
 		for (Futbolista f : futbolistas) {
 			System.out.println(f);
-			System.out.println("-----------");
+			System.out.println("--------------");
 		}
 	}
 	
-	public boolean añadirFutbolista(Futbolista f) {
+	public static boolean añadirFutbolista(Futbolista f) {
 		boolean res = false;
 		if (!futbolistas.contains(f)) {
 			res = futbolistas.add(f);
@@ -22,11 +22,11 @@ public class FutbolistaCrud {
 		return res;
 	}
 	
-	public boolean eliminarFutbolista(Futbolista f) {
+	public static boolean eliminarFutbolista(Futbolista f) {
 		return futbolistas.remove(f);
 	}
 	
-	public void ordenarFutbolistas() {
+	public static void ordenarFutbolistas() {
 		Collections.sort(futbolistas);
 	}
 	
