@@ -1,6 +1,7 @@
 package boletin2.ejercicio1;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class SocioCrud {
 	
@@ -19,6 +20,10 @@ public class SocioCrud {
 	
 	public static boolean eliminarSocio(Socio s) {
 		return socios.remove(s);
+	}
+	
+	public static void ordenarLista() {
+		Collections.sort(socios);
 	}
 	
 

@@ -7,6 +7,12 @@ public class Socio implements Comparable<Socio> {
 	private int edad;
 	
 	
+	public Socio(int id) {
+		if (id > 0) {
+			this.id = id;
+		}
+	}
+	
 	public Socio(int id, String nombre, int edad) {
 		
 		if (id > 0) {
@@ -31,6 +37,22 @@ public class Socio implements Comparable<Socio> {
 			res = 1;
 		} else if (this.id < socio.id) {
 			res = -1;
+		}
+		
+		return res;
+	}
+	
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+		boolean res = false;
+		
+		if (obj instanceof Socio s) {
+			
+			if (this.id == s.id) {
+				res = true;
+			}
 		}
 		
 		return res;
