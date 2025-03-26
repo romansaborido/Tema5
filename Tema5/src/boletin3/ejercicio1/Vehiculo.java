@@ -27,26 +27,30 @@ public class Vehiculo {
 		}
 	}
 	
-	private void parar() {
+	public void parar() {
 		this.OnOff = false;
 	}
 
-	private void arrancar() {
+	public void arrancar() {
 		this.OnOff = true;
 	}
 
 	public boolean subirMarcha() {
 		boolean res = false;
-		if (this.marcha >= 1 && this.marcha <= 4) {
+		if (this.marcha >= 0 && this.marcha <= 4) {
 			this.marcha++;
 			res = true;
 		}
 		return res;
 	}
 
-	//public boolean bajarMarcha() {
-		//boolean res = false;
-		//if (this.marcha)
-	//}
+	public boolean bajarMarcha() {
+		boolean res = false;
+		if (this.marcha >= 1 && this.marcha <= 5) {
+			this.marcha--;
+			res = true;
+		}
+		return res;
+	}
 	
 }
