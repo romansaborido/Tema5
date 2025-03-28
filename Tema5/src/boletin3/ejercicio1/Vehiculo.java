@@ -35,22 +35,31 @@ public class Vehiculo {
 		this.OnOff = true;
 	}
 
-	public boolean subirMarcha() {
-		boolean res = false;
-		if (this.marcha >= 0 && this.marcha <= 4) {
-			this.marcha++;
-			res = true;
-		}
-		return res;
+	public void cambiarVelocidad(int velocidad) {
+		this.velocidadActual = velocidad;
 	}
-
-	public boolean bajarMarcha() {
-		boolean res = false;
-		if (this.marcha >= 1 && this.marcha <= 5) {
-			this.marcha--;
-			res = true;
+	
+	public void cambiarMarcha(int marcha) {
+		this.marcha = marcha;
+	}
+	
+	public String estado() {
+		String onOff = "Apagado";
+		if (this.OnOff) {
+			onOff = "Encendido";
 		}
-		return res;
+		return "\n--- " + this.marca + " " + this.modelo + " ---" + "\n" +
+		"On/Off -> " + onOff + "\n" +
+		"Marcha -> " + this.marcha + "\n" +
+		"Velocidad -> " + this.velocidadActual + "\n";
+	}
+	
+	@Override
+	public String toString() {
+		return "\n--- " + this.marca + " ---" + "\n" + 
+		"Modelo -> " + this.modelo + "\n" + 
+		"Color -> " + this.color + "\n" + 
+		"Matrícula -> " + this.matricula + "\n";
 	}
 	
 }

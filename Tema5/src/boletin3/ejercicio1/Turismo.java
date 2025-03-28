@@ -21,6 +21,13 @@ public class Turismo extends Vehiculo {
 		}
 	}
 	
+	@Override
+	public String toString() {
+		return super.toString() +
+		"Plazas -> " + this.numeroPlazas + "\n" + 
+		"Uso -> " + this.uso + "\n";
+	}
+	
 	
 
 }

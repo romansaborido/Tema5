@@ -14,5 +14,16 @@ public class Camion extends Vehiculo {
 		
 		this.mercanciaPeligrosa = mercanciaPeligrosa;
 	}
+	
+	@Override
+	public String toString() {
+		String mercanciaPeligrosa = "No";
+		if (this.mercanciaPeligrosa) {
+			mercanciaPeligrosa = "Sí";
+		}
+		return super.toString() +
+		"Peso maximo autorizado -> " + this.pesoMaximoAutorizado + "\n" + 
+		"Transporta mercancias peligrosas -> " + mercanciaPeligrosa + "\n";
+	}
 
 }

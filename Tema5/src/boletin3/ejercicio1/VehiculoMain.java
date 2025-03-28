@@ -9,19 +9,40 @@ public class VehiculoMain {
 	public static void main(String[] args) {
 		
 		String respuesta;
+		Vehiculo vehiculo;
+		int velocidad;
+		int marcha;
 		
-		System.out.println("BIENVENIDO a VehicleSimulation. Crea tu vehiculo!");
+		System.out.println("BIENVENIDO a VehicleSimulation. Crea tu vehiculo!\n");
+		vehiculo = creaVehiculo();
 		
-		System.out.println("¿Quieres arrancar el coche?");
-		respuesta = reader.nextLine();
+		System.out.println(vehiculo);
+		
+		do {
+			System.out.println("¿Quieres arrancar el vehículo?");
+			respuesta = reader.nextLine();
+		} while (!respuesta.equalsIgnoreCase("si") && !respuesta.equalsIgnoreCase("no"));
 		
 		if (respuesta.equalsIgnoreCase("si")) {
-			//coche.arrancar();
+			vehiculo.arrancar();
+			
+			System.out.println("¿A qué velocidad quieres ir?");
+			velocidad = reader.nextInt();
+			
+			km(velocidad);
+			
+			marcha = cambiaMarcha(velocidad);
+			
+			vehiculo.cambiarMarcha(marcha);
+			
+			vehiculo.cambiarVelocidad(velocidad);
+			
+			System.out.println(vehiculo.estado());
 		}
 
 	}
 	
-	public static Vehiculo creaVehiculo() {
+	private static Vehiculo creaVehiculo() {
 		
 		Vehiculo vehiculo = null;
 		
@@ -35,13 +56,14 @@ public class VehiculoMain {
 		
 		System.out.println("Introduzca una opcion");
 		opcion = reader.nextInt();
+		reader.nextLine();
 		
 		String marca;
 		String modelo;
 		String color;
 		String matricula;
 
-		System.out.println("Introduzca la marca");
+		System.out.println("\nIntroduzca la marca");
 		marca = reader.nextLine();
 		
 		System.out.println("Introduzca el modelo");
@@ -61,6 +83,7 @@ public class VehiculoMain {
 				
 				System.out.println("Introduzca el numero de plazas");
 				numeroPlazas = reader.nextInt();
+				reader.nextLine();
 				
 				System.out.println("Introduzca el uso del turismo: Profesional o Particular");
 				uso = reader.nextLine().toUpperCase();
@@ -74,11 +97,12 @@ public class VehiculoMain {
 				
 				System.out.println("Introduzca el peso maximo autorizado");
 				pesoMaximoAutorizado = reader.nextInt();
+				reader.nextLine();
 				
 				do {
 					System.out.println("¿Transporta mercancias peligrosas? (Si/no)");
 					respuesta = reader.nextLine().toUpperCase();
-				} while (!respuesta.equalsIgnoreCase("si") || !respuesta.equalsIgnoreCase("no"));
+				} while (!respuesta.equalsIgnoreCase("si") && !respuesta.equalsIgnoreCase("no"));
 				
 				if (respuesta.equalsIgnoreCase("si")) {
 					mercanciaPeligrosa = true;
@@ -91,11 +115,39 @@ public class VehiculoMain {
 			case 3 -> {
 				
 				int cilindrada;
-				boolean requiereCarnet;
+				
+				System.out.println("Introduzca la cilindrada de la moto");
+				cilindrada = reader.nextInt();
+				reader.nextLine();
+				
+				vehiculo = new Motocicleta(marca, modelo, color, matricula, cilindrada);
 			}
 		}
 		
 		return vehiculo;
 	}
 
+	private static void km(int velocidad) {
+		System.out.println("\n-------");
+		for (int i = 0 ; i <= velocidad ; i++) {
+			System.out.println("|"+i+"|");
+		}
+		System.out.println("-------");
+	}
+
+	private static int cambiaMarcha(int velocidad) {
+		int marcha = 0;
+		if (velocidad >= 1 && velocidad <= 30) {
+			marcha = 1;
+		} else if (velocidad > 30 && velocidad <= 50) {
+			marcha = 2;
+		} else if (velocidad > 50 && velocidad <= 70) {
+			marcha = 3;
+		} else if (velocidad > 70 && velocidad <= 100) {
+			marcha = 4;
+		} else if (velocidad > 100){
+			marcha = 5;
+		}
+		return marcha;
+	}
 }
