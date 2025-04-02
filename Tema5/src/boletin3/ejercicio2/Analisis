@@ -1,0 +1,62 @@
+ANALISIS FICHA
+
+abstract Ficha
+--------------
+	- int id
+	- String titulo
+--------------
+	+ Ficha(int id, String titulo)
+--------------
+	+ int getId()
+	+ String getTitulo()
+	+ void setTitulo(String titulo)
+--------------
+	+ abstract String prestar()
+	
+	
+Libro extends Ficha
+--------------
+	- String autor
+	- String editorial
+--------------
+	+ Libro (int id, String titulo, String autor, String editorial)
+--------------
+	+ String getAutor()
+	+ String getEditorial()
+	+ void setEditorial(String editorial)
+--------------
+	heredados:
+		+ String prestar()
+
+
+Revista extends Ficha
+--------------
+	- int numeroRevista
+	- String añoPublicacion
+--------------
+	+ Revista (int id, String titulo, int numeroRevista, String añoPublicacion)
+--------------
+	+ int getNumeroRevista()
+	+ String getAñoPublicacion()
+--------------
+	heredados:
+		+ String prestar()
+		
+		
+Dvd extends Ficha
+--------------
+	enum Tipo { PELICULA, DOCUMENTAL, SERIE }
+--------------
+	- String director
+	- String año
+	- String tipo
+--------------
+	+ Dvd (int id, String titulo, String director, String año, String tipo)
+--------------
+	+ String getDirector()
+	+ String getAño()
+	+ String getTipo()
+--------------
+	heredados:
+		+ String prestar()
+
