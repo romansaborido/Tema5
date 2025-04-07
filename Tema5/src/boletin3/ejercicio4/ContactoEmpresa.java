@@ -17,4 +17,8 @@ public class ContactoEmpresa extends Contacto {
 	public String getDominio() {
 		return this.dominio;
 	}
+	
+	public void setDominio(String dominio) {
+		this.dominio = dominio;
+	}
 }

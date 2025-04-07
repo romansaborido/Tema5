@@ -4,7 +4,7 @@ public class Contacto {
 
 	private String nombre;
 	
-	int telefono;
+	private int telefono;
 	
 	
 	public Contacto(String nombre, int telefono) {
@@ -34,6 +34,7 @@ public class Contacto {
 	}
 	
 	
+	@Override
 	public boolean equals(Object obj) {
 		boolean res = false;
 		

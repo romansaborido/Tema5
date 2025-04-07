@@ -1,0 +1,34 @@
+ANALISIS CONTACTO
+
+Contacto
+--------------
+	- String nombre
+	- int telefono
+--------------
+	+ Contacto(String nombre, int telefono)
+--------------
+	+ String getNombre()
+	+ int getTelefono
+	+ void setTelefono(int telefono)
+--------------
+	+ boolean equals(Object obj)
+
+
+ContactoEmpresa extends Contacto
+--------------
+	- String dominio
+--------------
+	+ ContactoEmpresa(String nombre, int telefono, String dominio)
+--------------
+	+ String getDominio()
+	+ void setDominio(String dominio)
+
+
+ContactoPersona extends Contacto
+--------------
+	- String fechaNacimiento
+--------------
+	+ ContactoPersona(String nombre, int telefono, String fechaNacimiento)
+--------------
+	+ String getFechaNacimiento()
+	
