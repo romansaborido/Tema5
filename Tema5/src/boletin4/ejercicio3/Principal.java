@@ -12,7 +12,6 @@ public class Principal {
 		// Creamos este comparador para ordenar los futbolistas de mas goles a menos goles
 		Comparator<Futbolista> byGolesDesc = (f1, f2) -> { return f2.getGoles() - f1.getGoles(); };
 		
-		
 		// Creamos futbolistas
 		Futbolista f1 = new Futbolista("Lionel Messi", 10, 36, 800);
 		Futbolista f2 = new Futbolista("Cristiano Ronaldo", 7, 39, 850);
@@ -28,10 +27,11 @@ public class Principal {
 		FutbolistaCrud.añadirFutbolista(f5);
 		
 		
-		// Ordenamos los futbolistas utilizando el comparator de las edades
+		// Ordenamos los futbolistas utilizando el comparator de las edades (LAMBDA)
 		FutbolistaCrud.ordenarFutbolistasComp(byEdadAsc);
 		
 		// Imprimimos los futbolistas
+		System.out.println("LAMBDA EDADES ASC");
 		FutbolistaCrud.listarFutbolistas();
 		
 		System.out.println();
@@ -40,6 +40,25 @@ public class Principal {
 		FutbolistaCrud.ordenarFutbolistasComp(byGolesDesc);
 		
 		// Imprimimos los futbolistas
+		System.out.println("LAMBDA GOLES DESC");
+		FutbolistaCrud.listarFutbolistas();
+		
+		System.out.println();
+		
+		// Ordenamos los futbolistas utilizando el comparator de las edades (CLASE)
+		FutbolistaCrud.ordenarFutbolistasComp(new ByEdadAsc());
+		
+		// Imprimimos los futbolistas
+		System.out.println("CLASE EDADES ASC");
+		FutbolistaCrud.listarFutbolistas();
+				
+		System.out.println();
+		
+		// Ordenamos los futbolistas utilizando el comparator de los goles
+		FutbolistaCrud.ordenarFutbolistasComp(new ByGolesDesc());
+				
+		// Imprimimos los futbolistas
+		System.out.println("CLASE GOLES DESC");
 		FutbolistaCrud.listarFutbolistas();
 		
 
