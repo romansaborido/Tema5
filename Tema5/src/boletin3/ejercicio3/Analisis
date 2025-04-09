@@ -32,13 +32,41 @@ Titular
 	+ String getNombre()
 	+ String getApellidos()
 	+ int getTelefono()
+<<<<<<< HEAD
 	+ void setTelefono()
+=======
+	+ void setTelefono(int telefono)
+
+
+Transaccion
+--------------
+	- int dia
+	- int mes
+	- int año
+	- String concepto
+	- double importe
+--------------
+	+ Transaccion(int dia, int mes, int año, String concepto, double importe)
+--------------
+	+ int getDia()
+	+ int getMes()
+	+ int getAño()
+	+ String getConcepto()
+	+ double getImporte() 
+>>>>>>> branch 'master' of https://github.com/romansaborido/Tema5.git
 
 
 CuentaAhorro extends CuentaBancaria
 --------------
 	- double cuotaMantenimiento
 	- double interesAnual
+--------------
+	+ CuentaAhorro(Titular t, String numeroCuenta, double cuotaMantenimiento, double interesAnual)
+--------------
+	+ double getCuotaMantenimiento()
+	+ double getInteresAnual()
+	+ void setCuotaMantenimiento(double cuotaMantenimiento)
+	+ void setInteresAnual(double interesAnual)
 --------------
 	+ double aplicarInteres()
 	+ double aplicarMantenimiento()
@@ -48,6 +76,11 @@ CuentaCorriente extends CuentaBancaria
 --------------
 	- double porcentaje
 	- List<Transaccion> transacciones
+--------------
+	+ CuentaCorriente(Titular t, String numeroCuenta, double porcentaje)
+--------------
+	+ double getPorcentaje()
+	+ void setPorcentaje(double porcentaje)
 --------------
 	+ realizarTransaccion(Transaccion t)
 	
