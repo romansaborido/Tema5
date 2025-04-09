@@ -28,11 +28,11 @@ Titular
 --------------
 	+ Titular(String dni, String nombre, String apellidos, int telefono)
 --------------
-	+ 
-	+
-	+
-	+
-	+
+	+ String getDni()
+	+ String getNombre()
+	+ String getApellidos()
+	+ int getTelefono()
+	+ void setTelefono()
 
 
 CuentaAhorro extends CuentaBancaria
