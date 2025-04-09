@@ -1,6 +1,6 @@
 package boletin4.ejercicio4;
 
-public abstract class Ficha implements Comparable<Ficha> {
+public class Ficha implements Comparable<Ficha> {
 
 	private int id;
 	
@@ -34,9 +34,6 @@ public abstract class Ficha implements Comparable<Ficha> {
 	}
 	
 	
-	public abstract String prestar();
-	
-	
 	@Override
 	public int compareTo(Ficha ficha) {
 		
@@ -49,5 +46,10 @@ public abstract class Ficha implements Comparable<Ficha> {
 		}
 		
 		return res;
+	}
+	
+	public String toString() {
+		return "ID -> " + this.id + "\n" +
+			   "TÍTULO -> " + this.titulo + "\n";
 	}
 }
